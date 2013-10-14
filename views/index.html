@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html ng-app="cs2925">
+<head>
+<title>OAuth Example</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+<script src="/public/js/ui-bootstrap-tpls-0.6.0.min.js"></script>
+<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet"/>
+<script type="text/javascript" src="/public/js/app.js"></script>
+</head>
+<body>
+<div ng-controller="OAuthController">
+  <!--
+     <h1>Cloudspokes Challenge 2925</h1>
+
+    <div ng-show="user">
+      Logged in as {{user.username}}
+      <br/>
+      <button class="btn btn-warning" ng-click="logout()">LogOut</button>
+    </div>
+
+    <div ng-hide="loading || user">
+      <h2>Login using Cloudspokes credentials</h2>
+      Username:<input type="text" ng-model="username"/><br/>
+      Password:<input type="password" ng-model="password"/><br/>
+      <div style="font-weight:bold; color:red;">{{errorMsg}}</div>
+      <button class="btn btn-primary" ng-click="authorize()" >Authorize...</button>
+      <br/>
+      <a class="btn" style="cursor:pointer;" ng-click="copyTestCredentials()">Set valid user/pass...</a>
+      <br/>
+      <h2>Login using Social credentials</h2>
+      <a href="/auth/twitter"><img src="/public/img/twitter.png" width="32"/></a>
+      <a href="/auth/facebook"><img src="/public/img/facebook.png" width="32"/></a>
+      <a href="/auth/google"><img src="/public/img/google.png" width="32"/></a>
+      <a href="/auth/github"><img src="/public/img/github.png" width="32"/></a>
+  </div>
+  <div ng-show="loading">
+    .... loading ...
+  </div>
+
+   <br/>
+   Access token: <label>{{access_token}}</label><br/>
+   Refresh token: <label>{{refresh_token}}</label>
+   <br/>
+   <button ng-click="callAuthorized()">Find the treasure...</button>
+
+</div>
+-->
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">CS 2925</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+            </ul>
+            <!-- log in controls -->
+            <form class="navbar-form pull-right" ng-hide="user || loading">
+              <input class="span2" type="text" placeholder="Username" ng-model="username">
+              <input class="span2" type="password" placeholder="Password" ng-model="password">
+              <button ng-click="authorize()" class="btn">Sign in with Cloudspokes</button>
+              <a href="/auth/twitter"><img src="/public/img/twitter.png" width="32"/></a>
+              <a href="/auth/facebook"><img src="/public/img/facebook.png" width="32"/></a>
+              <a href="/auth/google"><img src="/public/img/google.png" width="32"/></a>
+              <a href="/auth/github"><img src="/public/img/github.png" width="32"/></a>
+            </form>
+
+            <!-- log out controls -->
+            <form class="navbar-form pull-right" ng-show="user && !loading">
+              <p style="color:white">Logged in as <b>{{user.username}}</b>
+              <button ng-click="logout()" class="btn btn-warning">Logout</button></p>
+            </form>
+            <form class="navbar-form pull-right" ng-show="loading">
+              <img src="http://technotravel.it/images/loading-blue.gif" width="32"/>
+            </form>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h1>Challenge 2925</h1>
+        <p>
+           Access token: <span>{{access_token}}</span><br/>
+           Refresh token: <span>{{refresh_token}}</span>
+        </p>
+        <p>
+          <a class="btn"  ng-click="copyTestCredentials()" ng-disabled="user">Set test user/pass...</a>
+          <button class="btn btn-success" ng-click="callAuthorized()">Find the treasure...</button>
+        </p>
+        <p>
+          <div class="alert alert-error" ng-show="errorMsg">
+              <button class="close" ng-click="errorMsg = null">&times;</button>
+              {{errorMsg}}
+            </div>
+            <div class="alert alert-info" ng-show="infoMsg">
+              <button class="close" ng-click="infoMsg = null">&times;</button>
+              {{infoMsg}}
+            </div>
+        </p>
+      </div>
+
+
+      <hr>
+
+      <footer>
+        <p>ForceLogic 2013 - Challenge 2925</p>
+      </footer>
+
+    </div> <!-- /container -->
+</body>
+</html>

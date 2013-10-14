@@ -1,0 +1,23 @@
+{
+    "name": "cs-2925",
+    "version": "0.0.1",
+    "dependencies": {
+        "express": "3.3.x",
+        "ejs": "*",
+        "node-oauth2-server" : "1.5.x",
+        "mongoose": "3.6.x",
+        "connect-mongo":"0.3.x",
+        "passport":"0.1.x",
+        "passport-twitter":"1.0.x",
+        "passport-facebook":"1.0.x",
+        "passport-google-oauth":"0.1.x",
+        "passport-github":"0.1.x",
+        "request":"2.27.x",
+        "mocha":"1.13.x",
+        "expect.js":"0.2.x"
+    },
+    "engines": {
+        "node": "0.10.x",
+        "npm": "1.2.x"
+    }
+}
